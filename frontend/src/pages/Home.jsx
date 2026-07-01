@@ -21,6 +21,7 @@ export default function Home() {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1000);
   const [sortBy, setSortBy] = useState('newest');
+  const [showFilters, setShowFilters] = useState(false);
 
   // Available categories
   const categories = ['All', 'Keyboards', 'Audio', 'Monitors', 'Wearables', 'Accessories'];
@@ -67,18 +68,29 @@ export default function Home() {
   return (
     <div style={styles.container}>
       {/* Header hero section */}
-      <div className="glass-panel" style={styles.heroSection}>
-        <h1 style={styles.heroTitle}>Futuristic Glass E-Market</h1>
-        <p style={styles.heroSubtitle}> frosted premium tech gadgets & ambient desk setups </p>
+      <div className="glass-panel hero-section" style={styles.heroSection}>
+        <h1 className="hero-title" style={styles.heroTitle}>Futuristic Glass E-Market</h1>
+        <p className="hero-subtitle" style={styles.heroSubtitle}> frosted premium tech gadgets & ambient desk setups </p>
       </div>
 
-      <div style={styles.mainLayout}>
+      <div className="home-main-layout" style={styles.mainLayout}>
         {/* Filter panel sidebar */}
-        <div className="glass-panel" style={styles.sidebar}>
-          <div style={styles.sidebarHeader}>
-            <SlidersHorizontal size={20} style={{ color: 'var(--primary-glow)' }} />
-            <h3 style={{ fontSize: '1.2rem' }}>Filters</h3>
+        <div className="glass-panel home-sidebar" style={styles.sidebar}>
+          <div 
+            style={styles.sidebarHeader} 
+            className="home-sidebar-header"
+            onClick={() => setShowFilters(!showFilters)}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <SlidersHorizontal size={20} style={{ color: 'var(--primary-glow)' }} />
+              <h3 style={{ fontSize: '1.2rem', margin: 0 }}>Filters</h3>
+            </div>
+            <span className="mobile-filter-toggle-icon">
+              {showFilters ? 'Hide' : 'Show'}
+            </span>
           </div>
+
+          <div className={`home-filters-body ${showFilters ? 'show-mobile' : ''}`}>
 
           {/* Search bar inside filters */}
           <div style={styles.filterGroup}>
@@ -107,8 +119,8 @@ export default function Home() {
                   className="glass-btn-secondary"
                   style={{
                     ...styles.categoryBtn,
-                    background: category === cat ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(236, 72, 153, 0.25))' : 'rgba(255, 255, 255, 0.03)',
-                    borderColor: category === cat ? 'var(--primary-glow)' : 'var(--border-glass)',
+                    background: category === cat ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(219, 39, 119, 0.15))' : 'rgba(255, 255, 255, 0.4)',
+                    borderColor: category === cat ? 'var(--primary-glow)' : 'rgba(15, 23, 42, 0.08)',
                   }}
                 >
                   {cat}
@@ -150,6 +162,7 @@ export default function Home() {
               <option value="price-high">Price: High to Low</option>
               <option value="rating">Top Rated</option>
             </select>
+          </div>
           </div>
         </div>
 
@@ -255,12 +268,12 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%)',
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%)',
   },
   heroTitle: {
     fontSize: '2.8rem',
     fontWeight: '800',
-    background: 'linear-gradient(135deg, #fff 30%, var(--primary-glow) 70%, var(--secondary-glow) 100%)',
+    background: 'linear-gradient(135deg, var(--text-main) 30%, var(--primary-glow) 75%, var(--secondary-glow) 100%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     marginBottom: '10px',
@@ -286,7 +299,7 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
     marginBottom: '20px',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+    borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
     paddingBottom: '10px',
   },
   filterGroup: {
@@ -334,7 +347,7 @@ const styles = {
   slider: {
     width: '100%',
     accentColor: 'var(--primary-glow)',
-    background: 'rgba(255, 255, 255, 0.1)',
+    background: 'rgba(15, 23, 42, 0.1)',
     borderRadius: '4px',
     cursor: 'pointer',
   },
@@ -366,7 +379,7 @@ const styles = {
     position: 'relative',
     height: '180px',
     width: '100%',
-    background: 'rgba(0,0,0,0.1)',
+    background: 'rgba(0,0,0,0.03)',
     overflow: 'hidden',
   },
   productImage: {
@@ -391,7 +404,7 @@ const styles = {
     fontSize: '1.1rem',
     fontWeight: '600',
     marginBottom: '8px',
-    color: 'white',
+    color: 'var(--text-main)',
   },
   productDesc: {
     fontSize: '0.85rem',
@@ -423,13 +436,13 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 'auto',
-    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+    borderTop: '1px solid rgba(15, 23, 42, 0.08)',
     paddingTop: '12px',
   },
   productPrice: {
     fontSize: '1.25rem',
     fontWeight: '700',
-    color: 'white',
+    color: 'var(--text-main)',
   },
   cardActions: {
     display: 'flex',

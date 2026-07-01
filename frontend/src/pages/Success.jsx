@@ -24,19 +24,19 @@ export default function Success() {
         <p style={styles.subtitle}>Your order has been placed and is now processing.</p>
 
         <div style={styles.receiptBox}>
-          <div style={styles.receiptRow}>
+          <div className="receipt-row" style={styles.receiptRow}>
             <span style={styles.receiptLabel}>Order Reference ID</span>
             <span style={styles.receiptValue}>{orderId}</span>
           </div>
-          <div style={styles.receiptRow}>
+          <div className="receipt-row" style={styles.receiptRow}>
             <span style={styles.receiptLabel}>Total Items Purchased</span>
             <span style={styles.receiptValue}>{itemsCount} {itemsCount === 1 ? 'item' : 'items'}</span>
           </div>
-          <div style={styles.receiptRow}>
+          <div className="receipt-row" style={styles.receiptRow}>
             <span style={styles.receiptLabel}>Amount Transacted</span>
             <span style={styles.receiptValueGlow}>${totalAmount.toFixed(2)}</span>
           </div>
-          <div style={styles.receiptRow}>
+          <div className="receipt-row" style={styles.receiptRow}>
             <span style={styles.receiptLabel}>Shipping Speed</span>
             <span style={styles.receiptValue}>Standard Glass Delivery</span>
           </div>
@@ -67,7 +67,7 @@ const styles = {
     maxWidth: '500px',
     padding: '50px 40px',
     textAlign: 'center',
-    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.05) 100%)',
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%)',
   },
   iconWrapper: {
     display: 'inline-flex',
@@ -76,9 +76,9 @@ const styles = {
     width: '100px',
     height: '100px',
     borderRadius: '50%',
-    background: 'rgba(6, 182, 212, 0.08)',
-    border: '1px solid rgba(6, 182, 212, 0.2)',
-    boxShadow: '0 0 30px rgba(6, 182, 212, 0.15)',
+    background: 'rgba(13, 148, 136, 0.08)',
+    border: '1px solid rgba(13, 148, 136, 0.2)',
+    boxShadow: '0 0 30px rgba(13, 148, 136, 0.15)',
     marginBottom: '30px',
     animation: 'pulse 2s infinite ease-in-out',
   },
@@ -88,7 +88,7 @@ const styles = {
   title: {
     fontSize: '2.2rem',
     fontWeight: '800',
-    background: 'linear-gradient(135deg, #ffffff 40%, var(--accent-cyan) 100%)',
+    background: 'linear-gradient(135deg, var(--text-main) 40%, var(--accent-cyan) 100%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     marginBottom: '10px',
@@ -99,7 +99,7 @@ const styles = {
     marginBottom: '35px',
   },
   receiptBox: {
-    background: 'rgba(0, 0, 0, 0.15)',
+    background: 'rgba(15, 23, 42, 0.04)',
     borderRadius: '16px',
     padding: '24px',
     display: 'flex',
@@ -107,7 +107,7 @@ const styles = {
     gap: '16px',
     textAlign: 'left',
     marginBottom: '40px',
-    border: '1px solid rgba(255, 255, 255, 0.02)',
+    border: '1px solid rgba(15, 23, 42, 0.06)',
   },
   receiptRow: {
     display: 'flex',
@@ -120,7 +120,7 @@ const styles = {
   },
   receiptValue: {
     fontWeight: '600',
-    color: 'white',
+    color: 'var(--text-main)',
   },
   receiptValueGlow: {
     fontWeight: '700',
@@ -134,6 +134,7 @@ const styles = {
   homeBtn: {
     padding: '12px 28px',
     fontSize: '1rem',
-    background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%)',
+    background: 'linear-gradient(135deg, var(--accent-cyan), var(--primary-glow))',
+    color: '#ffffff',
   },
 };

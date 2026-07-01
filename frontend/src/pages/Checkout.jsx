@@ -137,7 +137,7 @@ export default function Checkout() {
         Back to Marketplace
       </button>
 
-      <div style={styles.layout}>
+      <div className="checkout-layout" style={styles.layout}>
         {/* Checkout Items Summary */}
         <div className="glass-panel" style={styles.summarySection}>
           <h3 style={styles.sectionTitle}>
@@ -190,7 +190,7 @@ export default function Checkout() {
         {/* Payment Simulation Form */}
         <div style={styles.paymentSection}>
           {/* Glowing Glass Simulated Credit Card */}
-          <div className="glass-panel" style={styles.glassCardVisual}>
+          <div className="glass-panel glass-card-visual" style={styles.glassCardVisual}>
             <div style={styles.cardHeaderVisual}>
               <div style={styles.chipVisual}></div>
               <div style={styles.contactlessVisual}></div>
@@ -323,20 +323,6 @@ const styles = {
     marginBottom: '20px',
     fontFamily: 'var(--font-sans)',
     outline: 'none',
-    transition: 'var(--transition-smooth)',
-  },
-  backBtn: {
-    background: 'none',
-    border: 'none',
-    color: 'var(--text-muted)',
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    marginBottom: '20px',
-    fontFamily: 'var(--font-sans)',
-    outline: 'none',
   },
   layout: {
     display: 'grid',
@@ -354,7 +340,7 @@ const styles = {
     alignItems: 'center',
     gap: '10px',
     marginBottom: '24px',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+    borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
     paddingBottom: '10px',
   },
   emptyCartBox: {
@@ -370,7 +356,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '15px',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.03)',
+    borderBottom: '1px solid rgba(15, 23, 42, 0.06)',
     paddingBottom: '15px',
   },
   itemImage: {
@@ -385,7 +371,7 @@ const styles = {
   itemName: {
     fontSize: '0.95rem',
     fontWeight: '600',
-    color: 'white',
+    color: 'var(--text-main)',
     marginBottom: '4px',
   },
   itemPrice: {
@@ -395,14 +381,14 @@ const styles = {
   itemTotal: {
     fontSize: '1rem',
     fontWeight: '600',
-    color: 'white',
+    color: 'var(--text-main)',
   },
   priceSummary: {
     marginTop: '10px',
     display: 'flex',
     flexDirection: 'column',
     gap: '12px',
-    background: 'rgba(0,0,0,0.1)',
+    background: 'rgba(15, 23, 42, 0.04)',
     padding: '20px',
     borderRadius: '14px',
   },
@@ -413,12 +399,12 @@ const styles = {
     color: 'var(--text-muted)',
   },
   totalPriceRow: {
-    borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+    borderTop: '1px solid rgba(15, 23, 42, 0.1)',
     paddingTop: '12px',
     marginTop: '4px',
     fontSize: '1.2rem',
     fontWeight: '700',
-    color: 'white',
+    color: 'var(--text-main)',
   },
   paymentSection: {
     display: 'flex',
@@ -428,9 +414,9 @@ const styles = {
   glassCardVisual: {
     height: '220px',
     padding: '25px',
-    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%)',
-    border: '1px solid rgba(255, 255, 255, 0.15)',
-    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)',
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.3) 100%)',
+    border: '1px solid rgba(255, 255, 255, 0.6)',
+    boxShadow: '0 20px 40px rgba(31, 38, 135, 0.06)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -446,20 +432,20 @@ const styles = {
     width: '45px',
     height: '35px',
     borderRadius: '6px',
-    background: 'linear-gradient(135deg, #e5c07b, #abb2bf)',
-    opacity: '0.8',
+    background: 'linear-gradient(135deg, #d97706, #94a3b8)',
+    opacity: '0.85',
   },
   contactlessVisual: {
     width: '30px',
     height: '30px',
-    background: 'radial-gradient(circle, transparent 40%, rgba(255,255,255,0.2) 60%)',
+    background: 'radial-gradient(circle, transparent 40%, rgba(15,23,42,0.1) 60%)',
     borderRadius: '50%',
   },
   cardNumberVisual: {
     fontSize: '1.4rem',
     letterSpacing: '3px',
     fontFamily: 'Courier, monospace',
-    color: '#e0e7ff',
+    color: 'var(--text-main)',
     textAlign: 'center',
     margin: '20px 0',
   },
@@ -481,16 +467,17 @@ const styles = {
     fontSize: '0.9rem',
     fontWeight: '600',
     letterSpacing: '1px',
+    color: 'var(--text-main)',
   },
   formPanel: {
     padding: '30px',
   },
   errorAlert: {
-    background: 'rgba(236, 72, 153, 0.1)',
-    border: '1px solid rgba(236, 72, 153, 0.25)',
+    background: 'rgba(219, 39, 119, 0.08)',
+    border: '1px solid rgba(219, 39, 119, 0.2)',
     borderRadius: '12px',
     padding: '12px 16px',
-    color: '#f472b6',
+    color: '#db2777',
     fontSize: '0.9rem',
     marginBottom: '20px',
     textAlign: 'center',
@@ -522,7 +509,8 @@ const styles = {
     padding: '14px',
     fontSize: '1.05rem',
     marginTop: '10px',
-    background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%)',
-    borderColor: 'rgba(255,255,255,0.25)',
+    background: 'linear-gradient(135deg, var(--accent-cyan), var(--primary-glow))',
+    borderColor: 'rgba(255,255,255,0.3)',
+    color: '#ffffff',
   },
 };

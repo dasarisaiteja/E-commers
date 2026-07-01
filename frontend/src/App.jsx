@@ -37,14 +37,14 @@ function NavigationHeader({ onCartOpen }) {
   };
 
   return (
-    <header className="glass-panel" style={styles.header}>
+    <header className="glass-panel app-header" style={styles.header}>
       <Link to="/" style={styles.logo}>
         <div style={styles.logoOrb}></div>
         <span style={styles.logoText}>AURA</span>
-        <span style={styles.logoSubtext}>GLASS</span>
+        <span className="logo-subtext" style={styles.logoSubtext}>GLASS</span>
       </Link>
 
-      <div style={styles.navActions}>
+      <div className="app-nav-actions" style={styles.navActions}>
         {/* Auth status panel */}
         {user ? (
           <div style={styles.userSection}>
@@ -93,7 +93,7 @@ function CartSidebar({ isOpen, onClose }) {
   return (
     <div style={styles.sidebarOverlay} onClick={onClose}>
       <div 
-        className="glass-panel" 
+        className="glass-panel sidebar-cart" 
         style={styles.sidebarCart} 
         onClick={(e) => e.stopPropagation()}
       >
@@ -260,7 +260,7 @@ const styles = {
   logoText: {
     fontSize: '1.25rem',
     fontWeight: '800',
-    color: '#ffffff',
+    color: 'var(--text-main)',
     letterSpacing: '2px',
   },
   logoSubtext: {
@@ -268,7 +268,7 @@ const styles = {
     fontWeight: '400',
     color: 'var(--accent-cyan)',
     letterSpacing: '1px',
-    borderLeft: '1px solid rgba(255,255,255,0.15)',
+    borderLeft: '1px solid rgba(15, 23, 42, 0.15)',
     paddingLeft: '8px',
   },
   navActions: {
@@ -287,7 +287,7 @@ const styles = {
     gap: '6px',
     fontSize: '0.9rem',
     color: 'var(--text-glow)',
-    background: 'rgba(255, 255, 255, 0.03)',
+    background: 'rgba(15, 23, 42, 0.03)',
     padding: '6px 12px',
     borderRadius: '8px',
     border: '1px solid var(--border-glass)',
@@ -353,7 +353,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    background: 'rgba(10, 12, 22, 0.75)',
+    background: 'rgba(255, 255, 255, 0.85)',
     animation: 'slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
   },
   sidebarCartHeader: {
@@ -361,7 +361,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '20px',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+    borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
     paddingBottom: '15px',
   },
   closeBtn: {
@@ -391,8 +391,8 @@ const styles = {
     alignItems: 'center',
     gap: '15px',
     padding: '12px',
-    background: 'rgba(255, 255, 255, 0.02)',
-    border: '1px solid rgba(255, 255, 255, 0.05)',
+    background: 'rgba(255, 255, 255, 0.45)',
+    border: '1px solid rgba(15, 23, 42, 0.06)',
     borderRadius: '14px',
     position: 'relative',
   },
@@ -408,7 +408,7 @@ const styles = {
   cartItemName: {
     fontSize: '0.9rem',
     fontWeight: '600',
-    color: 'white',
+    color: 'var(--text-main)',
     marginBottom: '4px',
   },
   cartItemPrice: {
@@ -422,10 +422,10 @@ const styles = {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '8px',
-    background: 'rgba(0,0,0,0.2)',
+    background: 'rgba(15, 23, 42, 0.04)',
     padding: '4px 8px',
     borderRadius: '8px',
-    border: '1px solid rgba(255, 255, 255, 0.04)',
+    border: '1px solid rgba(15, 23, 42, 0.06)',
   },
   qtyBtn: {
     background: 'none',
@@ -445,13 +445,13 @@ const styles = {
   deleteItemBtn: {
     background: 'none',
     border: 'none',
-    color: 'rgba(236, 72, 153, 0.6)',
+    color: 'rgba(219, 39, 119, 0.7)',
     cursor: 'pointer',
     alignSelf: 'center',
     transition: 'var(--transition-smooth)',
   },
   sidebarCartFooter: {
-    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+    borderTop: '1px solid rgba(15, 23, 42, 0.08)',
     paddingTop: '20px',
   },
   sidebarTotalRow: {
@@ -465,7 +465,7 @@ const styles = {
   sidebarTotalValue: {
     fontSize: '1.35rem',
     fontWeight: '700',
-    color: '#ffffff',
+    color: 'var(--text-main)',
   },
   footerActionRow: {
     display: 'flex',
@@ -475,7 +475,7 @@ const styles = {
     textAlign: 'center',
     padding: '40px 20px',
     marginTop: '60px',
-    borderTop: '1px solid rgba(255, 255, 255, 0.03)',
+    borderTop: '1px solid rgba(15, 23, 42, 0.06)',
     color: 'var(--text-muted)',
     fontSize: '0.85rem',
     position: 'relative',

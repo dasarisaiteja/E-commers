@@ -80,17 +80,17 @@ export default function ProductDetails() {
       </button>
 
       {/* Main product detail panel */}
-      <div className="glass-panel" style={styles.detailCard}>
-        <div style={styles.layout}>
+      <div className="glass-panel product-detail-card" style={styles.detailCard}>
+        <div className="product-detail-layout" style={styles.layout}>
           {/* Product Image Column */}
-          <div style={styles.imageColumn}>
+          <div className="product-detail-image-column" style={styles.imageColumn}>
             <img src={product.imageUrl} alt={product.name} style={styles.productImage} />
           </div>
 
           {/* Product Details Column */}
           <div style={styles.detailsColumn}>
             <span className="glass-badge" style={styles.categoryBadge}>{product.category}</span>
-            <h1 style={styles.productName}>{product.name}</h1>
+            <h1 className="product-detail-name" style={styles.productName}>{product.name}</h1>
             
             {/* Rating and Stock Row */}
             <div style={styles.metaRow}>
@@ -197,7 +197,7 @@ const styles = {
   },
   detailCard: {
     padding: '40px',
-    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.05) 100%)',
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%)',
   },
   layout: {
     display: 'grid',
@@ -209,7 +209,7 @@ const styles = {
     overflow: 'hidden',
     border: '1px solid var(--border-glass)',
     height: '420px',
-    background: 'rgba(0,0,0,0.1)',
+    background: 'rgba(0,0,0,0.03)',
   },
   productImage: {
     width: '100%',
@@ -229,7 +229,7 @@ const styles = {
     fontSize: '2.2rem',
     fontWeight: '800',
     marginBottom: '15px',
-    color: 'white',
+    color: 'var(--text-main)',
     lineHeight: '1.2',
   },
   metaRow: {
@@ -237,7 +237,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '25px',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+    borderBottom: '1px solid rgba(15, 23, 42, 0.08)',
     paddingBottom: '15px',
   },
   ratingBox: {
@@ -268,7 +268,7 @@ const styles = {
   priceValue: {
     fontSize: '2rem',
     fontWeight: '800',
-    color: 'white',
+    color: 'var(--text-main)',
   },
   descriptionContainer: {
     marginBottom: '30px',
@@ -277,7 +277,7 @@ const styles = {
     fontSize: '1.1rem',
     fontWeight: '600',
     marginBottom: '10px',
-    color: 'white',
+    color: 'var(--text-main)',
   },
   descriptionText: {
     fontSize: '0.95rem',
@@ -303,15 +303,15 @@ const styles = {
   qtyBox: {
     display: 'flex',
     alignItems: 'center',
-    background: 'rgba(0,0,0,0.2)',
+    background: 'rgba(15, 23, 42, 0.04)',
     borderRadius: '10px',
-    border: '1px solid var(--border-glass)',
+    border: '1px solid rgba(15, 23, 42, 0.08)',
     padding: '4px',
   },
   qtyBtn: {
     background: 'none',
     border: 'none',
-    color: 'white',
+    color: 'var(--text-main)',
     width: '32px',
     height: '32px',
     fontSize: '1.2rem',
@@ -340,14 +340,14 @@ const styles = {
     flex: '1.2',
     padding: '14px',
     fontSize: '1rem',
-    background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%)',
+    background: 'linear-gradient(135deg, rgba(13, 148, 136, 0.25) 0%, rgba(99, 102, 241, 0.25) 100%)',
   },
   outOfStockAlert: {
     padding: '15px',
-    background: 'rgba(236, 72, 153, 0.08)',
-    border: '1px solid rgba(236, 72, 153, 0.2)',
+    background: 'rgba(219, 39, 119, 0.08)',
+    border: '1px solid rgba(219, 39, 119, 0.2)',
     borderRadius: '12px',
-    color: '#f472b6',
+    color: '#db2777',
     fontSize: '0.95rem',
     textAlign: 'center',
   },
