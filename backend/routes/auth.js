@@ -33,6 +33,7 @@ router.post('/signup', async (req, res) => {
       name,
       email,
       password,
+      isAdmin: email === 'admin@aura.com',
     });
 
     if (user) {
@@ -40,6 +41,7 @@ router.post('/signup', async (req, res) => {
         _id: user._id,
         name: user.name,
         email: user.email,
+        isAdmin: user.isAdmin,
         token: generateToken(user._id),
       });
     } else {
@@ -64,10 +66,17 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user && (await user.matchPassword(password))) {
+      // Auto-promote existing account to admin if email matches admin@aura.com
+      if (user.email === 'admin@aura.com' && !user.isAdmin) {
+        user.isAdmin = true;
+        await user.save();
+      }
+
       res.json({
         _id: user._id,
         name: user.name,
         email: user.email,
+        isAdmin: user.isAdmin,
         token: generateToken(user._id),
       });
     } else {

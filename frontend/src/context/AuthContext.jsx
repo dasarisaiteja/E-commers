@@ -35,9 +35,9 @@ export const AuthProvider = ({ children }) => {
       }
 
       setToken(data.token);
-      setUser({ name: data.name, email: data.email, _id: data._id });
+      setUser({ name: data.name, email: data.email, _id: data._id, isAdmin: data.isAdmin });
       localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify({ name: data.name, email: data.email, _id: data._id }));
+      localStorage.setItem('user', JSON.stringify({ name: data.name, email: data.email, _id: data._id, isAdmin: data.isAdmin }));
       return { success: true };
     } catch (error) {
       return { success: false, message: error.message };
@@ -58,9 +58,9 @@ export const AuthProvider = ({ children }) => {
       }
 
       setToken(data.token);
-      setUser({ name: data.name, email: data.email, _id: data._id });
+      setUser({ name: data.name, email: data.email, _id: data._id, isAdmin: data.isAdmin });
       localStorage.setItem('token', data.token);
-      localStorage.setItem('user', JSON.stringify({ name: data.name, email: data.email, _id: data._id }));
+      localStorage.setItem('user', JSON.stringify({ name: data.name, email: data.email, _id: data._id, isAdmin: data.isAdmin }));
       return { success: true };
     } catch (error) {
       return { success: false, message: error.message };

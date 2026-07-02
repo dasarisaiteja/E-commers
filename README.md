@@ -58,11 +58,25 @@ npm run build
 The output assets will be created in the `dist` directory.
 ---
 ## 📄 Pages Walkthrough
-- **Home Page (`/`)**: Dynamic catalog showing products with live search query filtering, category tabs, min/max price slider, and sorting metrics (price, rating, newness).
+- **Home Page (`/`)**: Dynamic catalog showing products with live search query filtering, category tabs, min/max price slider, and sorting metrics (price, rating, newness). Now optimized with a collapsible filter menu for mobile and tablet viewports.
 - **Product Details (`/product/:id`)**: Rich single-product viewport featuring detailed reviews, stocks counts, rating badges, custom quantity stepper, and "Buy Now" routes.
 - **Authentication (`/auth`)**: Sign In / Sign Up portal styled with high-end transparent form blocks.
 - **Checkout (`/checkout`)**: Reviews items, displays total summaries, checks authentication, and processes mock credit card payments before persisting orders to the backend.
 - **Success (`/success`)**: Confirms transaction success and shows order confirmation metadata.
+- **Admin Dashboard (`/admin`)**: A secure administrative center displaying catalog analytics (Total products, inventory units, categories, and low-stock alerts) and allowing authorized admins to add, edit, or delete items.
+
+---
+
+## 👑 Admin Panel & Catalog CRUD Operations
+To check or demonstrate the admin capabilities in a live development session:
+1. Navigate to the **Sign In** screen.
+2. Sign up or log in using the email **`admin@aura.com`** (which dynamically grants full Admin privileges).
+3. Once logged in, the **Admin Panel** link will become visible in the header.
+4. From the dashboard, you can:
+   - **Create**: Click **Add Product** and fill in the visual glass form details to insert a new item.
+   - **Update**: Click **Edit** on any listing to modify name, category, price, stock, or description.
+   - **Delete**: Click **Delete** on any listing to remove it from the catalog database.
+
 ---
 ## 🛠️ Technology Stack
 - **Core Library**: React (v19)

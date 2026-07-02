@@ -17,6 +17,7 @@ import Auth from './pages/Auth';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
 import ProductDetails from './pages/ProductDetails';
+import Admin from './pages/Admin';
 
 // Icons
 import { ShoppingCart, LogOut, User, X, Plus, Minus, Trash2, ShieldAlert } from 'lucide-react';
@@ -52,6 +53,11 @@ function NavigationHeader({ onCartOpen }) {
               <User size={14} style={{ color: 'var(--accent-cyan)' }} />
               <span style={styles.userName}>{user.name}</span>
             </div>
+            {user.isAdmin && (
+              <Link to="/admin" className="glass-btn-secondary" style={{ ...styles.authBtn, background: 'rgba(99, 102, 241, 0.1)', borderColor: 'var(--primary-glow)' }}>
+                Admin Panel
+              </Link>
+            )}
             <button onClick={handleAuthClick} className="glass-btn-secondary" style={styles.authBtn}>
               <LogOut size={14} />
               Logout
@@ -209,6 +215,7 @@ function MainAppLayout() {
           <Route path="/auth" element={<Auth />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
 
